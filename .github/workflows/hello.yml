@@ -1,20 +1,24 @@
 # Name of the workflow
 name: Hello World Workflow
 
-# events that trigger this workflow
+# Events that trigger this workflow
 on:
+  # Trigger when code is pushed to the main branch
   push:
     branches: [main]
-  pull_requuest:
+  
+  # Trigger when a pull request targets main or staging branches
+  pull_request:
     branches: [main, staging]
 
 # Jobs to run
 jobs:
   greet:
-  # the type of runner to yse e.g windows, ubuntu, mac
+    # The type of runner to use (Linux, Windows, Mac)
     runs-on: ubuntu-latest
-    # steps to execute in this job
+    
+    # Steps to execute in this job
     steps:
-      # run a single line command  
+      # Step 1: run a single line command
       - name: Hello
-        run: echo"hello world!"  
+        run: echo "hello world!"   # Print hello world in workflow logs
