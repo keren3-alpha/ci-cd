@@ -1,1 +1,20 @@
-## this is my hello
+# Name of the workflow
+name: Hello World Workflow
+
+# events that trigger this workflow
+on:
+  push:
+    branches: [master]
+  pull_requuest:
+    branches: [master, staging]
+
+# Jobs to run
+jobs:
+  greet:
+  # the type of runner to yse e.g windows, ubuntu, mac
+    runs-on: ubuntu-latest
+    # steps to execute in this job
+    steps:
+      # run a single line command  
+      - name: Hello
+        run: echo"hello world!"  
